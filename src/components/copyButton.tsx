@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useCopyToClipboard from '../hooks/useCopyToClipboard';
 
 interface ButtonProps {
@@ -6,11 +6,13 @@ interface ButtonProps {
 }
 const CopyButton: React.FC<ButtonProps> = (props) => {
   const [value, copy] = useCopyToClipboard()
+  const [message, setMessage]  = useState('Share');
+
   console.log(value);
   return (
     <>
       <div style={{ display: 'flex' }}>
-        <button onClick={() => copy(props.text)}>Share</button>
+        <button onClick={() => {setMessage('Copied to clipboard!'); copy(props.text);}}>{message}</button>
       </div>
     </>
   )
