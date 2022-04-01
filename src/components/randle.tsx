@@ -1,7 +1,7 @@
 import Grid from './grid';
 
 function puzzleName() : string {
-  const names = ['Squirtle', 'Randle', 'Trogdor', 'Matrix', 'Fakle'];
+  const names = ['Squirtle', 'Randle', 'Trogdor', 'Matrix', 'Fakle', 'Missle', 'Squiggle'];
 	const coin = Math.floor(Math.random() * names.length);
 	return (
     names[coin]
