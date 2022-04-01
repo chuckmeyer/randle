@@ -1,4 +1,5 @@
 import CopyButton from './copyButton';
+
 function getPuzzleName() : string {
   const names = ["Fool's Word", 'Dawdle', 'Chuckle', 'Toddle', 'Squirtle', 'Clickle', 'Randle', 'Trogdor', 'Matrix', 'Fakle', 'Missle', 'Squiggle', 'Turtle', 'Burple', 'Shrimp', 'Fartle' ];
 	const coin = Math.floor(Math.random() * names.length);
@@ -6,6 +7,14 @@ function getPuzzleName() : string {
     names[coin]
 	)
 };
+
+function getGuess(tries:number) : number {
+	var tempGuess = Math.floor(Math.random() * tries) + 1;
+	if (tempGuess === 1 && tries > 1) 
+		// Did they *really* get it in one?
+		tempGuess = Math.floor(Math.random() * tries) + 1;
+	return tempGuess;
+}
 
 interface GridProps {
 	max: number;
@@ -49,7 +58,7 @@ const Randle = () => {
   const puzzleName = getPuzzleName();
 
 	const tries = Math.floor(Math.random() * maxGuess) + 1;
-	const guess =  Math.floor(Math.random() * tries) + 1;	
+	const guess = getGuess(tries);
   const puzzleNumber = Math.floor(Math.random() * maxPuzzle) + 1;
   const width = Math.floor(Math.random() * maxLength) + 1;
 	const header = `${puzzleName} ${puzzleNumber} ${guess}/${tries}`;
