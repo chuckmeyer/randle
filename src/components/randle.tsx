@@ -65,7 +65,7 @@ const Randle = () => {
 			<br />
 			<CopyButton text={puzzle} />
 			<br />
-			<a href="https://github.com/chuckmeyer/randle">Github Code</a> | <a href="https://twitter.com/chuckm">Puzzle Name Suggestions</a>
+			<a href="https://github.com/chuckmeyer/randle">Github Code</a> | <a href="https://twitter.com/chuckm/status/1509910223947014156?s=20&t=o_eN4DjPqbl6O_XQRVjQgA">Puzzle Name Suggestions</a>
 			
 		</div>
 	);
