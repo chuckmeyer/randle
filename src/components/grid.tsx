@@ -24,7 +24,7 @@ function Grid (props:GridProps) {
 				};
 			};
 		} else {
-			for(var j = 0; j < props.width; j++) {
+			for(var k = 0; k < props.width; k++) {
 				line += "🟩";
 			};
 		}
