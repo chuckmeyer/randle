@@ -22,19 +22,19 @@ function getGrid (props:GridProps) {
 				const coin = Math.floor(Math.random() * 3);
 				switch(coin) {
 				 case 0:
-				  line += "⬛️";
+				  line += "⬛";
 					break;
 				case 1:
-				  line += "🟨️";
+				  line += "🟨";
 					break;
 				case 2:
-				  line += "🟩️";
+				  line += "🟩";
 					break;
 				};
 			};
 		} else {
 			for(var k = 0; k < props.width; k++) {
-				line += "🟩️";
+				line += "🟩";
 			};
 		}
     grid.push(line);
