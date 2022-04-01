@@ -31,7 +31,7 @@ function Grid (props:GridProps) {
   }
   return (
     <div>
-     	{grid.map(line=> <span>{line}<br /></span>)}
+     	{grid.map(line=> <>{line}<br /></>)}
 		</div>
  );
 }
