@@ -16,7 +16,6 @@ function Grid (props:GridProps) {
 					break;
 				case 1:
 				  line += "🟨";
-
 					break;
 				case 2:
 				  line += "🟩";

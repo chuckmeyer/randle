@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Grid from './grid';
 
 function puzzleName() : string {
@@ -13,10 +14,11 @@ const Randle = () => {
   const max_puzzle = 1000
 	const max_length = 10
   const puzzle_name = puzzleName();
+  const [puzzle, setPuzzle] = useState();
 
 	const tries = Math.floor(Math.random() * max_guess) + 1;
 	const guess =  Math.floor(Math.random() * tries) + 1;	
-  const puzzle = Math.floor(Math.random() * max_puzzle) + 1;
+  const puzzle_size = Math.floor(Math.random() * max_puzzle) + 1;
   const width = Math.floor(Math.random() * max_length) + 1;
 	return (
 		<div>
