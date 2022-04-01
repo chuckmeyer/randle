@@ -1,32 +1,72 @@
-import Grid from './grid';
-
-function puzzleName() : string {
-  const names = ['Squirtle', 'Randle', 'Trogdor', 'Matrix', 'Fakle', 'Missle', 'Squiggle'];
+import CopyButton from './copyButton';
+function getPuzzleName() : string {
+  const names = ['Squirtle', 'Clickle', 'Randle', 'Trogdor', 'Matrix', 'Fakle', 'Missle', 'Squiggle', 'Turtle', 'Burple', 'Shrimp' ];
 	const coin = Math.floor(Math.random() * names.length);
 	return (
     names[coin]
 	)
 };
 
-const Randle = () => {
-  const max_guess = 10
-  const max_puzzle = 1000
-	const max_length = 10
-  const puzzle_name = puzzleName();
+interface GridProps {
+	max: number;
+	length: number;
+	width: number;
+}
 
-	const tries = Math.floor(Math.random() * max_guess) + 1;
+function getGrid (props:GridProps) {
+  var grid = [];
+  for(var i = 0; i < props.length; i++) {
+  	var line = '';
+		if ( i < props.length - 1 || props.max === 1) {
+			for(var j = 0; j < props.width; j++) {
+				const coin = Math.floor(Math.random() * 3);
+				switch(coin) {
+				 case 0:
+				  line += "⬛";
+					break;
+				case 1:
+				  line += "🟨";
+					break;
+				case 2:
+				  line += "🟩";
+					break;
+				};
+			};
+		} else {
+			for(var k = 0; k < props.width; k++) {
+				line += "🟩";
+			};
+		}
+    grid.push(line);
+  }
+  return grid;
+}
+
+const Randle = () => {
+  const maxGuess = 10
+  const maxPuzzle = 1000
+	const maxLength = 10
+  const puzzleName = getPuzzleName();
+
+	const tries = Math.floor(Math.random() * maxGuess) + 1;
 	const guess =  Math.floor(Math.random() * tries) + 1;	
-  const puzzle_size = Math.floor(Math.random() * max_puzzle) + 1;
-  const width = Math.floor(Math.random() * max_length) + 1;
+  const puzzleNumber = Math.floor(Math.random() * maxPuzzle) + 1;
+  const width = Math.floor(Math.random() * maxLength) + 1;
+	const header = `${puzzleName} ${puzzleNumber} ${guess}/${tries}`;
+  const grid = getGrid({max: tries, length: guess, width: width});
+	const puzzle = `${header}\n\n${grid.join('\n')}`;
+
 	return (
 		<div>
     	<p>
-				{puzzle_name} {puzzle_size} {guess}/{tries}<br />
+				{header}<br />
       </p>
-			< Grid
-				length={guess} 
-				width={width} 
-			/>
+				{grid.map(line=> <>{line}<br /></>)}
+			<br />
+			<CopyButton text={puzzle} />
+			<br />
+			<a href="https://github.com/chuckmeyer/randle">Github Code</a> | <a href="https://twitter.com/chuckm">Puzzle Name Suggestions</a>
+			
 		</div>
 	);
 }
