@@ -1,6 +1,6 @@
 import CopyButton from './copyButton';
 function getPuzzleName() : string {
-  const names = ["Fool's Word", 'Dawdle', 'Toddle', 'Squirtle', 'Clickle', 'Randle', 'Trogdor', 'Matrix', 'Fakle', 'Missle', 'Squiggle', 'Turtle', 'Burple', 'Shrimp', 'Fartle' ];
+  const names = ["Fool's Word", 'Dawdle', 'Chuckle', 'Toddle', 'Squirtle', 'Clickle', 'Randle', 'Trogdor', 'Matrix', 'Fakle', 'Missle', 'Squiggle', 'Turtle', 'Burple', 'Shrimp', 'Fartle' ];
 	const coin = Math.floor(Math.random() * names.length);
 	return (
     names[coin]
