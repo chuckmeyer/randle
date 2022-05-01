@@ -63,7 +63,8 @@ const Randle = () => {
   const width = Math.floor(Math.random() * maxLength) + 1;
 	const header = `${puzzleName} ${puzzleNumber} ${guess}/${tries}`;
   const grid = getGrid({max: tries, length: guess, width: width});
-	const puzzle = `${header}\n\n${grid.join('\n')}`;
+	const footer = 'https://randle.secretlair.net';
+	const puzzle = `${header}\n\n${grid.join('\n')}\n\n${footer}`;
 
 	return (
 		<div>
